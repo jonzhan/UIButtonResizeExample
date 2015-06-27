@@ -20,6 +20,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBOutlet weak var buttonHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttonWidthConstraint: NSLayoutConstraint!
+    
+    @IBAction func buttonWasTapped(sender: AnyObject) {
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.buttonHeightConstraint.constant = CGRectGetHeight(self.view.bounds)
+            self.buttonWidthConstraint.constant = CGRectGetWidth(self.view.bounds)
+            self.view.layoutIfNeeded()
+        })
+    }
 
 }
 
